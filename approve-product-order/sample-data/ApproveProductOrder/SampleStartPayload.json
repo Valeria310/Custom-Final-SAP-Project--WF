@@ -1,0 +1,22 @@
+{
+    "WorkflowDetails": {
+        "title": "Product(s) in order",
+        "comment":"Please Approve"
+    },
+    "ProductOrder": {
+        "quantity": 15,
+        "productName": "Cola",
+        "totalWeight": 2025,
+        "totalPrice": 56.25,
+        "totalLocalPrice": 142.64,
+        "status_ID": 1,
+        "CurrencyCode_code": "USD",
+        "LocalCurrencyCode_code": "BYN",
+        "ID": "14603429-9235-4426-a73b-56f55ebd893e",
+        "createdAt": "2022-10-05T08:57:05.975Z",
+        "createdBy": "sb-kb-orders!t105859",
+        "modifiedAt": "2022-10-05T08:57:05.975Z",
+        "modifiedBy": "sb-kb-orders!t105859",
+        "orderID": 15
+    }
+}

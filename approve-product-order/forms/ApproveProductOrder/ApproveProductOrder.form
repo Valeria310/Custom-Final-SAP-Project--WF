@@ -1,0 +1,159 @@
+{
+    "id": "approveproductorder",
+    "schemaVersion": "1.1.0",
+    "name": "ApproveProductOrder",
+    "revision": "1.0",
+    "type": "task",
+    "readOnly": false,
+    "content": [
+        {
+            "id": "book_order_details",
+            "type": "section",
+            "title": "Product Order Details",
+            "content": [
+                {
+                    "id": "product_name",
+                    "type": "string",
+                    "label": "Product Name",
+                    "readOnly": true,
+                    "value": "${context.ProductOrder.productName}",
+                    "constraints": {
+                        "required": false
+                    }
+                },
+                {
+                    "id": "total_weight_g_",
+                    "type": "integer",
+                    "label": "Total Weight (g.)",
+                    "readOnly": true,
+                    "value": "${context.ProductOrder.totalWeight}",
+                    "constraints": {
+                        "required": false
+                    }
+                },
+                {
+                    "id": "total_price",
+                    "type": "string",
+                    "label": "Total Price",
+                    "readOnly": true,
+                    "value": "${context.ProductOrderCalcFields.totalPriceWithCurrencyCode}",
+                    "constraints": {
+                        "required": false
+                    }
+                },
+                {
+                    "id": "total_local_price",
+                    "type": "string",
+                    "label": "Total Local Price",
+                    "readOnly": true,
+                    "value": "${context.ProductOrderCalcFields.totalLocalPriceWithLocalCurrencyCode}",
+                    "constraints": {
+                        "required": false
+                    }
+                }
+            ]
+        },
+        {
+            "id": "history_",
+            "type": "section",
+            "title": "History of Approvals",
+            "content": [
+                {
+                    "id": "history",
+                    "type": "collection",
+                    "title": "History",
+                    "addEnabled": false,
+                    "deleteEnabled": false,
+                    "value": "${context.History}",
+                    "content": [
+                        {
+                            "id": "user",
+                            "type": "string",
+                            "label": "User",
+                            "readOnly": true,
+                            "value": "${item.User}",
+                            "constraints": {
+                                "required": false
+                            }
+                        },
+                        {
+                            "id": "role",
+                            "type": "string",
+                            "label": "Role",
+                            "readOnly": true,
+                            "value": "${item.Role}",
+                            "constraints": {
+                                "required": false
+                            }
+                        },
+                        {
+                            "id": "request_date",
+                            "type": "string",
+                            "label": "Request Date",
+                            "readOnly": true,
+                            "value": "${item.RequestDate}",
+                            "constraints": {
+                                "required": false
+                            }
+                        },
+                        {
+                            "id": "decision",
+                            "type": "string",
+                            "label": "Decision",
+                            "readOnly": true,
+                            "value": "${item.RequestDate}",
+                            "constraints": {
+                                "required": false
+                            }
+                        },
+                        {
+                            "id": "comment",
+                            "type": "string",
+                            "label": "Comment",
+                            "readOnly": true,
+                            "value": "${item.Comment}",
+                            "constraints": {
+                                "required": false
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "decision",
+            "type": "section",
+            "title": "Comment",
+            "content": [
+                {
+                    "id": "comment",
+                    "type": "string",
+                    "label": "Comment",
+                    "readOnly": false,
+                    "value": "${context.WorkflowDetails.comment}",
+                    "control": {
+                        "type": "TextArea",
+                        "properties": {
+                            "height": "medium"
+                        }
+                    },
+                    "constraints": {
+                        "required": false
+                    }
+                }
+            ]
+        }
+    ],
+    "decisions": [
+        {
+            "id": "approve",
+            "text": "Approve",
+            "decisionType": "positive"
+        },
+        {
+            "id": "reject",
+            "text": "Reject",
+            "decisionType": "negative"
+        }
+    ]
+}
